@@ -9,7 +9,7 @@ import NutritionPage from '../NutritionPage/NutritionPage'
 import { useState, useEffect } from "react"
 import apiClient from '../../../services/appClient'
 import Login from '../Login/Login'
-import Register from '../Register/register'
+import Register from '../Register/Register'
 
 function App() {
   const [appState, setAppState] = useState({
