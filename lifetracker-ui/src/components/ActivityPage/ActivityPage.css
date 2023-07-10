@@ -1,0 +1,92 @@
+.activity {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+}
+.activity-container {
+    height: 550px;
+    width: 1250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.Authenticated {
+    font-size: 45px;
+    color: blue;
+    text-align: center;
+    font-weight: 500;
+}
+
+.excercise-container {
+  width: 535px;
+  height: 220px;
+  background-color: rgb(38, 137, 82);
+  margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+  border-radius: 5%;
+
+}
+
+.calories-container {
+    width: 535px;
+    height: 220px;
+    background-color: rgb(61, 110, 203);
+    margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 5%;
+
+
+}
+
+
+.sleep-container {
+    width: 535px;
+    height: 220px;
+    background-color: rgb(48, 154, 199);
+    margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 5%;
+
+
+}
+
+.info-container {
+    width: 535px;
+    height: 220px;
+    background-color: rgb(246, 246, 246);
+    margin-bottom: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 5%;
+
+
+}
+
+.activity-header {
+    margin-left: 85px;
+}
+
+.everything {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-form {
+    height: 300px;
+}

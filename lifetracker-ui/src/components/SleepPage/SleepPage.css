@@ -1,6 +1,95 @@
-.SleepPage .button {
+/* .SleepPage .button {
   display: flex;
 }
 .SleepPage .button button {
   flex: 1;
+} */
+
+
+/* SleepPage.css */
+.sleep-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.sleep-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-c-sleep {
+  background-color: rgb(25, 159, 207);
+  color: white;
+  width: 1700px;
+  height: 160px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.sleep-text {
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.add-sleep {
+  margin-top: 60px;
+  width: 400px;
+  height: 30px;
+}
+
+.added-title-sleep {
+  text-align: center;
+}
+
+.added-sleep {
+  display: flex;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sleep-item {
+  background-color: rgb(25, 159, 207);
+  width: 400px;
+  height: 250px;
+  border-radius: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.sub-sleep-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-sleep {
+  flex: 1;
+}
+
+.right-sleep {
+  flex: 1;
+}
+
+.added-time-sleep {
+  margin-top: -30px;
+  margin-right: 280px;
+  color: black;
+  width: 200px;
+}
+
+.sleep-submit-button {
+  background-color: rgb(25, 159, 207);
+}
+
+.input-text-portion-sleep {
+  background-color: rgb(25, 159, 207);
+  border: 0;
+  color: white;
+  font-weight: 400;
+  font-size: 25px;
 }

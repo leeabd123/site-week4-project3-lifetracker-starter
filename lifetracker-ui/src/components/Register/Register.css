@@ -1,0 +1,43 @@
+
+
+.reg-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 45vw;
+    height: 60vh; 
+    background-color: aliceblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    margin-left: 445px;
+    flex-direction: column;
+}
+  
+.reg-form {
+ display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  height: 350px;
+
+}
+
+.reg-title {
+     font-size: 45px;
+     color: rgb(47, 227, 161)
+}
+
+.reg-submit {
+    background-color: white;
+    margin-top: 10px;
+}
+
+
+.reg-form-group {
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    margin-bottom: 8px;
+    row-gap: 10px;;
+
+    
+}

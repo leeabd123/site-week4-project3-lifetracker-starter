@@ -1,6 +1,97 @@
-.ExercisePage .button {
+.excercisepage {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
 }
-.ExercisePage .button button {
+
+.excercise-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-c {
+  background-color: rgb(51, 148, 116);
+  color: white;
+  width: 1700px;
+  height: 160px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.excercise-text {
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+.add-excercise {
+  margin-top: 60px;
+  width: 400px;
+  height: 30px;
+}
+
+.added-title {
+  text-align: center;
+}
+
+.added-excercises {
+  display: flex;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.an-excercise {
+  background-color:rgb(51, 148, 116);
+  width: 400px;
+  height: 250px;
+  border-radius: 5%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.sub-exercise-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-exercise {
   flex: 1;
+}
+
+.right-exercise {
+  flex: 1;
+}
+
+
+.added-time {
+  margin-top: -20px;
+  margin-right: 280px;
+  color: black;
+  width: 200px;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 300px;
+  margin-top: 20px;
+  background-color:whitesmoke;
+  text-align: center;
+  border-radius: 5%;
+}
+
+.input-text-portion {
+  align-self: center;
+  text-align: center;
+  width: 150px;
+}
+.submit-button {
+  background-color: rgb(51, 148, 116);
+  border-radius: 5%;
+  border-color: white;
 }

@@ -4,3 +4,44 @@
   width: 100%;
   gap: 20px;
 }
+
+.Home {
+  display: flex;
+  flex-direction: row;
+  margin: 40px;
+  justify-content: center;
+  column-gap: 90px;
+}
+.Home-container {
+  flex-direction: column;
+  display: flex;
+  margin-top: -40px;
+
+}
+.header-text {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 50px;
+
+}
+
+.tracker {
+  border-radius: 8%;
+  width: 900px;
+  height: 600px;
+}
+
+.text1 {
+  font-size: 85px;
+  margin: 0;
+  font-weight: 800;
+  color: rgb(27, 27, 27);
+
+}
+
+.text2 {
+  font-weight: 70;
+  color: rgb(46, 45, 45);
+}
+

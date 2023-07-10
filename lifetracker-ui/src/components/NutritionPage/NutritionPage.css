@@ -1,19 +1,84 @@
-.NutritionPage {
-  background: #f7fafc;
-}
-.NutritionPage .nutrition-feed {
+.nutrition-page {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
+  margin-top: -50px;
 }
-.white {
+
+.nutrition-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-c-nutrients {
+  background-color: rgb(72, 127, 228);
+  color: white;
+  width: 1700px;
+  height: 160px;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.nutrition-text {
+  margin-top: 40px;
+  font-size: 40px;
   color: white;
 }
-.NutritionPage .button {
-  display: flex;
+
+.add-nutrition {
+  margin-top: 60px;
+  width: 400px;
+  height: 30px;
 }
-.NutritionPage .button button {
+
+.added-title-nutritents {
+  text-align: center;
+  color: white;
+}
+
+.added-nutrition {
+  display: flex;
+  margin-top: 80px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nutrition-item {
+  background-color: rgb(72, 127, 228);
+  width: 400px;
+  height: 250px;
+  border-radius: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.sub-nutrition-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-nutrition {
   flex: 1;
+}
+
+.right-nutrition {
+  flex: 1;
+}
+
+.added-time-nutrients {
+  margin-top: -20px;
+  margin-right: 280px;
+  color: black;
+}
+.added-time {
+  margin-top: 10px;
+  width: 300px;
+}
+
+ 
+.nutrition-submit-button {
+  background-color: rgb(72, 127, 228);
 }
