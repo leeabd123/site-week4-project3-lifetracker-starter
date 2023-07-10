@@ -6,7 +6,7 @@ const API_BASE_URL = process.env.NODE_ENV === "production" ? PRODUCTION_API_BASE
 
 class ApiClient {
   constructor(remoteHostUrl) {
-    this.remoteHostUrl = remoteHostUrl;
+    this.remoteHostUrl = "https://lifetracker-render.onrender.com";
     this.token = null;
   }
 
