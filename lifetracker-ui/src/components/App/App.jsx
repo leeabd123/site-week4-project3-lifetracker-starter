@@ -24,8 +24,18 @@ function App() {
   const [avgCal, setAvgCal] = useState(0);
   const [totalE, setTotalE] = useState(0);
   const [maxSleep, setMaxSleep] = useState(0);
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
+
+    function clearData() {
+      setExercises([]);
+      setNutrition([]);
+      setSleep([]);
+      setAvgCal(0);
+      setTotalE(0);
+      setMaxSleep(0);
+    }
     const fetchData = async () => {
       try {
         const { data: exerciseData, error: exerciseError } = await apiClient.getExercises();
@@ -119,6 +129,8 @@ function App() {
       clearData();
     }
   }, []);
+
+
 
   return (
     <div className="app">
