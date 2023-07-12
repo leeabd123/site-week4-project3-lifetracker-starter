@@ -37,7 +37,7 @@ export default function Navbar({setAppState, isAuthenticated}) {
         <Link to="/Exercise" className="navbar-link"><h1 className='nav-text'>Excercise</h1></Link>
         <Link to="/Nutrition" className="navbar-link"><h1 className='nav-text'>Nutrition</h1></Link>
         <Link to="/Sleep" className="navbar-link"><h1 className='nav-text'>Sleep</h1></Link>
-        <Link to="/Login" className="navbar-link"><button className='nav-button1'><strong>Sign In</strong></button></Link>
+        <Link to="/Login" className="navbar-link"><button className='nav-button1'><strong>Log in</strong></button></Link>
         <Link to="/Register" className="navbar-link"><button className='nav-button2'><strong>Register</strong></button></Link>
 
       </div>
