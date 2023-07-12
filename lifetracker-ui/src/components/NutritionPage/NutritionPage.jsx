@@ -3,6 +3,7 @@ import { useState } from 'react';
 import React from 'react';
 import * as Letters from 'react-icons/tb';
 import apiClient from '../../../services/appClient'
+import { Link } from 'react-router-dom'
 
 
 function NutritionPage({ isAuthenticated, nutrition, setNutrition, email }) {
@@ -12,7 +13,8 @@ function NutritionPage({ isAuthenticated, nutrition, setNutrition, email }) {
     category: '',
     calories: '',
     macronutrients: '',
-    time: ''
+    date: '',
+    id: ''
   });
 
   console.log(nutrition)
@@ -49,7 +51,8 @@ function NutritionPage({ isAuthenticated, nutrition, setNutrition, email }) {
       category: '',
       calories: '',
       macronutrients: '',
-      date: ''
+      date: '',
+      id: ''
     });
   };
 
@@ -112,7 +115,9 @@ function NutritionPage({ isAuthenticated, nutrition, setNutrition, email }) {
               <div className='nutrition-item' key={index}>
                 <h3 className='added-time'>Today at {item.date}</h3>
                 <h1 className='added-title-nutrients'>
-                  {item.category}
+                {/* <Link to={`/nutrition/detail/${item.id}`} className='nutrition-link'> */}
+                {item.category}
+                {/* </Link> */}
                   <AlphabetIcons letter={item.category ? item.category.charAt(0).toUpperCase() : ''} />
 
                 </h1>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './SleepPage.css';
 import apiClient from '../../../services/appClient'
+import { Link } from 'react-router-dom'
+import SleepDetail from '../SleepDetail/SleepDetail';
+
 
 function SleepPage({ isAuthenticated, sleep, setSleep, email }) {
   const [theForm, setTheForm] = useState(false);
@@ -8,13 +11,15 @@ function SleepPage({ isAuthenticated, sleep, setSleep, email }) {
     title: '',
     duration: '',
     quality: '',
+    date: '',
+    id: ''
   });
 
   const onClick = () => {
     setTheForm(true);
   };
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(sleepData);
 
@@ -40,6 +45,8 @@ function SleepPage({ isAuthenticated, sleep, setSleep, email }) {
       title: '',
       duration: '',
       quality: '',
+      date: '',
+      id: ''
     });
     setTheForm(false);
   };
@@ -100,7 +107,9 @@ function SleepPage({ isAuthenticated, sleep, setSleep, email }) {
             {sleep.map((item, index) => (
               <div className='sleep-item' key={index}>
                 <h3 className='added-time-sleep'>Today at {item.date}</h3>
+                <Link to={`/sleep/detail/${item.id}`} className='sleep-link' >
                 <h1 className='added-title-sleep'>{item.title}</h1>
+                </Link>
                 <div className='sub-sleep-info'>
                   <div className='left-sleep'>
                     <h3 className='duration'>Start Time</h3>

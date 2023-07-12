@@ -10,6 +10,9 @@ import { useState, useEffect } from "react"
 import apiClient from '../../../services/appClient'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
+import SleepDetail from '../SleepDetail/SleepDetail';
+import ExerciseDetail from '../ExcerciseDetail/ExcerciseDetail'
+
 
 function App() {
   const [appState, setAppState] = useState({
@@ -26,14 +29,14 @@ function App() {
   const [maxSleep, setMaxSleep] = useState(0);
   const [error, setError] = useState(null); 
   
-    function clearData() {
-      setExercises([]);
-      setNutrition([]);
-      setSleep([]);
-      setAvgCal(0);
-      setTotalE(0);
-      setMaxSleep(0);
-    }
+  function clearData() {
+    setExercises([]);
+    setNutrition([]);
+    setSleep([]);
+    setAvgCal(0);
+    setTotalE(0);
+    setMaxSleep(0);
+  }
 
   useEffect(() => {
 
@@ -45,7 +48,9 @@ function App() {
             title: element.title,
             duration: element.duration,
             intensity: element.intensity,
-            date: element.date
+            date: element.date,
+            id: element.id
+          
           }));
           setExercises(exerciseArray);
         } else {
@@ -54,12 +59,12 @@ function App() {
 
         const { data: nutritionData, error: nutritionError } = await apiClient.getNutrition();
         if (nutritionData && Array.isArray(nutritionData.nutritions)) {
-          console.log("???",nutritionData)
           const nutritionArray = nutritionData.nutritions.map((element) => ({
             category: element.category,
             calories: element.calories,
             macronutrients: element.nutrients,
-            date: element.date
+            date: element.date,
+            id: element.id
           }));
           setNutrition(nutritionArray);
         } else {
@@ -72,7 +77,8 @@ function App() {
             title: element.category,
             duration: element.start_time,
             quality: element.end_time,
-            date: element.date
+            date: element.date,
+            id: element.id
           }));
           setSleep(sleepArray);
         } else {
@@ -194,6 +200,21 @@ function App() {
             path="/Register"
             element={<Register isAuthenticated={appState.isAuthenticated} setAppState={setAppState} />}
           />
+          <Route 
+          path="/sleep/detail/:id" 
+          element={<SleepDetail           sleep={sleep}
+          />} 
+          
+          />
+            <Route
+            path="/exercise/detail/:id"
+            element={<ExerciseDetail exercises={exercises} />}
+          />
+            {/* <Route
+            path="/nutrition/detail/:id"
+            element={<ExerciseDetail exercises={exercises} />}
+          /> */}
+
         </Routes>
       </BrowserRouter>
     </div>

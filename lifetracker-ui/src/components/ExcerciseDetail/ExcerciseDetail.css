@@ -1,0 +1,10 @@
+.exercise-detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: aliceblue;
+    margin-left: 600px;
+}

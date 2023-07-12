@@ -1,21 +1,23 @@
 import './ExercisePage.css';
 import { useState } from 'react';
 import apiClient from '../../../services/appClient';
+import { Link } from 'react-router-dom';
 
- function ExercisePage({ isAuthenticated, exercises, setExercises, email }) {
+function ExercisePage({ isAuthenticated, exercises, setExercises, email }) {
   const [theform, setTheForm] = useState(false);
   const [exerciseData, setExerciseData] = useState({
     title: '',
     duration: '',
     intensity: '',
-    date: ''
+    date: '',
+    id: ''
   });
 
-  const onclick = () => {
+  const onClick = () => {
     setTheForm(true);
   };
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(exerciseData);
     const now = new Date();
@@ -35,17 +37,14 @@ import apiClient from '../../../services/appClient';
       duration: exerciseData.duration,
       intensity: exerciseData.intensity
     });
-    
 
     setExerciseData({
       title: '',
       duration: '',
       intensity: '',
+      id: ''
     });
     setTheForm(false);
-
-    
-   
   };
 
   const handleInputChange = (event) => {
@@ -63,13 +62,13 @@ import apiClient from '../../../services/appClient';
             <h1 className='excercise-text'>Exercise</h1>
           </div>
           {!theform && (
-            <button className='add-excercise' onClick={onclick}>
+            <button className='add-excercise' onClick={onClick}>
               <strong>Add Exercise</strong>
             </button>
           )}
           {theform && (
             <form className='add-form' onSubmit={handleFormSubmit}>
-              <h1>Add Excercise </h1>
+              <h1>Add Exercise</h1>
               <input
                 className='input-text-portion'
                 type='text'
@@ -104,7 +103,9 @@ import apiClient from '../../../services/appClient';
             {exercises.map((exercise, index) => (
               <div className='an-excercise' key={index}>
                 <h3 className='added-time'>Today at {exercise.date}</h3>
-                <h1 className='added-title'>{exercise.title}</h1>
+                <Link to={`/exercise/detail/${exercise.id}`} className='exercise-link'>
+                  <h1 className='added-title'>{exercise.title}</h1>
+                </Link>
                 <div className='sub-exercise-info'>
                   <div className='left-exercise'>
                     <h3 className='duration'>

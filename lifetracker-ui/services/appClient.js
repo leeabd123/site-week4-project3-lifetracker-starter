@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const PRODUCTION_API_BASE_URL = "https://example-api.com";
+const PRODUCTION_API_BASE_URL = "postgres://lifetracker_zqfv_user:T9jmHqTow7TDnB0wSFpLnYx00Vo9ctZC@dpg-cim4ef59aq07cb0f47u0-a/lifetracker_zqfv";
 const DEVELOPMENT_API_BASE_URL = "http://localhost:3001";
 const API_BASE_URL = process.env.NODE_ENV === "production" ? PRODUCTION_API_BASE_URL : DEVELOPMENT_API_BASE_URL;
 
 class ApiClient {
   constructor(remoteHostUrl) {
-    this.remoteHostUrl = "https://lifetracker-render.onrender.com";
+    this.remoteHostUrl = remoteHostUrl;
     this.token = null;
   }
 
@@ -22,6 +22,8 @@ class ApiClient {
 
     if (this.token) {
       headers["Authorization"] = `Bearer ${this.token}`;
+      headers["User-ID"] = `${this.token.id}`;
+
     }
 
     try {
@@ -126,6 +128,34 @@ class ApiClient {
     return await this.request({ endpoint: 'auth/totalE', method: 'GET' });
   }
   
+  async getExerciseById(id) {
+    console.log("????bruhhhh")
+    try {
+      const response = await this.request({ endpoint: `auth/exercise/:${id}`, method: 'GET' });
+      if (response.status === 200) {
+        return { exercise: response.data.exercise };
+      } else {
+        throw new Error(response.error);
+      }
+    } catch (error) {
+      throw new Error('An error occurred while fetching the exercise.');
+    }
+  }
+
+  
+  async getSleepById(id) {
+    try {
+      const response = await this.request({ endpoint: `auth/sleep/${id}`, method: 'GET' });
+      if (response.data) {
+        console.log(response.data.sleep)
+        return { sleep: response.data.sleep };
+      } else {
+        throw new Error(response.error);
+      }
+    } catch (error) {
+      throw new Error('An error occurred while fetching the sleep.');
+    }
+  }
   
 }
 

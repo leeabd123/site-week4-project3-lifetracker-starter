@@ -159,13 +159,13 @@ static async addS(credentials) {
 
 
 static async getExercisesByEmail(email) {
-  console.log("grabbing excercises emails", email)
+  // console.log("grabbing excercises emails", email)
   const query = `
     SELECT * FROM Excercise
     WHERE user_email = $1
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("excercises", result.rows)
+  // console.log("excercises", result.rows)
 
   return result.rows;
 }
@@ -176,7 +176,7 @@ static async getNutritionByEmail(email) {
     WHERE user_email = $1
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("nutrition", result.rows)
+  // console.log("nutrition", result.rows)
   return result.rows;
 }
 
@@ -186,7 +186,7 @@ static async getSleepByEmail(email) {
     WHERE user_email = $1
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("sleep", result.rows)
+  // console.log("sleep", result.rows)
 
   return result.rows;
 }
@@ -199,7 +199,7 @@ static async getMaxSleep(email) {
     GROUP BY user_email, date;
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("sleep", result.rows);
+  // console.log("sleep", result.rows);
 
   return result.rows;
 }
@@ -211,7 +211,7 @@ static async getAvgCal(email) {
     WHERE user_email = $1;
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("average calories", result.rows[0].average_calories);
+  // console.log("average calories", result.rows[0].average_calories);
 
   return result.rows[0].average_calories;
 }
@@ -222,9 +222,45 @@ static async getTotalE(email) {
     WHERE user_email = $1;
   `;
   const result = await db.query(query, [email.toLowerCase()]);
-  console.log("total duration", result.rows[0].total_duration);
+  // console.log("total duration", result.rows[0].total_duration);
 
   return result.rows[0].total_duration;
+}
+
+static async fetchById(id) {
+  const query = `SELECT * FROM users WHERE id = $1`;
+  const result = await db.query(query, [id]);
+  const user = result.rows[0];
+  return user;
+}
+static async fetchExerciseById(exerciseId) {
+  const query = `
+    SELECT * FROM Exercise
+    WHERE id = $1
+  `;
+  const result = await db.query(query, [exerciseId]);
+  const exercise = result.rows[0];
+  return exercise;
+}
+
+static async fetchNutritionById(nutritionId) {
+  const query = `
+    SELECT * FROM Nutrition
+    WHERE id = $1
+  `;
+  const result = await db.query(query, [nutritionId]);
+  const nutrition = result.rows[0];
+  return nutrition;
+}
+
+static async fetchSleepById(sleepId) {
+  const query = `
+    SELECT * FROM Sleep
+    WHERE id = $1
+  `;
+  const result = await db.query(query, [sleepId]);
+  const sleep = result.rows[0];
+  return sleep;
 }
 
 

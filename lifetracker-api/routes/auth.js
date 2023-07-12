@@ -5,6 +5,10 @@ const { createUserJwt } = require("../utils/token");
 const security = require('../middlewear/security');
 const { UnauthorizedError } = require('../utils/errors');
 
+router.get("/", (req,res,next) => {
+      res.status(201).json("it worked");
+});
+
 router.post("/login", async (req, res, next) => {
   try {
     const user = await User.login(req.body);
@@ -42,13 +46,13 @@ router.get("/me", security.requireAuthenticatedUser, async (req, res, next) => {
   }
 });
 router.post("/addEx", security.requireAuthenticatedUser, async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const { email } = res.locals.user;
     const exerciseData = { ...req.body, user_email: email };
-    console.log(email, "????????", exerciseData);
+    // console.log(email, "????????", exerciseData);
     await User.addEx(exerciseData);
-    console.log("it worked??")
+    // console.log("it worked??")
     return res.sendStatus(200); 
   } catch (err) {
     next(err);
@@ -56,13 +60,13 @@ router.post("/addEx", security.requireAuthenticatedUser, async (req, res, next) 
 });
 
 router.post("/addS", security.requireAuthenticatedUser, async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const { email } = res.locals.user; 
     const sleepData = { ...req.body, user_email: email }; 
-    console.log(email, "......", sleepData);
+    // console.log(email, "......", sleepData);
     await User.addS(sleepData);
-    console.log("worked")
+    // console.log("worked")
     return res.sendStatus(200); 
   } catch (err) {
     next(err);
@@ -71,20 +75,20 @@ router.post("/addS", security.requireAuthenticatedUser, async (req, res, next) =
 
 
 router.post("/addN", security.requireAuthenticatedUser, async (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const { email } = res.locals.user; 
     const nutritionData = { ...req.body, user_email: email }; 
-    console.log(email, "......", nutritionData);
+    // console.log(email, "......", nutritionData);
 
     await User.addN(nutritionData);
-    console.log("worked")
+    // console.log("worked")
     return res.sendStatus(200); 
   } catch (err) {
     next(err);
   }
 });
-console.log("entered route excercises")
+// console.log("entered route excercises")
 
 router.get("/exercises", async (req, res, next) => {
   console.log("entered route excercises")
@@ -98,7 +102,7 @@ router.get("/exercises", async (req, res, next) => {
 });
 
 router.get("/nutritions",  async (req, res, next) => {
-  console.log("grabbing nutritions")
+  // console.log("grabbing nutritions")
 
   try {
     const { email } = res.locals.user;
@@ -149,6 +153,55 @@ router.get("/totalE", async (req, res, next) => {
     const { email } = res.locals.user;
     const totalE = await User.getTotalE(email);
     return res.status(200).json({ totalE });
+  } catch (err) {
+    next(err);
+  }
+});
+
+
+router.get("/exercise/:id", security.requireAuthenticatedUser, async (req, res, next) => {
+ try {
+    const { email } = res.locals.user;
+    const exerciseId = req.params.id;
+    console.log("eneterd the detailed")
+
+    const exercise = await User.fetchExerciseById(exerciseId);
+    if (!exercise || exercise.user_email !== email) {
+      throw new UnauthorizedError("Unauthorized to access this exercise.");
+    }
+
+    return res.status(200).json({ exercise });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get("/nutrition/:id", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+    const { email } = res.locals.user;
+    const nutritionId = req.params.id;
+
+    const nutrition = await User.fetchNutritionById(nutritionId);
+    if (!nutrition || nutrition.user_email !== email) {
+      throw new UnauthorizedError("Unauthorized to access this nutrition.");
+    }
+
+    return res.status(200).json({ nutrition });
+  } catch (err) {
+    next(err);
+  }
+});
+router.get("/sleep/:id", security.requireAuthenticatedUser, async (req, res, next) => {
+  try {
+    const { email } = res.locals.user;
+    const sleepId = req.params.id;
+    const sleep = await User.fetchSleepById(sleepId);
+    console.log(sleep, "???? errror ")
+    // if (!sleep || sleep.user_email !== email) {
+    //   throw new UnauthorizedError("Unauthorized to access this sleep.");
+    // }
+
+    return res.status(200).json({ sleep });
   } catch (err) {
     next(err);
   }
