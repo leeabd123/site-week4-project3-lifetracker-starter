@@ -35,10 +35,10 @@ Implement any of the following features to improve the application:
 
 (There is 2 parts to my demo video)
 
-Part 1
+- Part 1
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/d06624f4fb284607bf10d9f497bf787a?sid=2cd1fbcb-07e5-40e1-9cda-966929a712bb" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-Part 2
+- Part 2
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/d78245d145564869a57036bf774b3157?sid=056a5931-d622-4398-b1c0-5185acff8813" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Deployed Webiste 
